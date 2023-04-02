@@ -3,7 +3,8 @@
   "description": "tdd kata",
   "license": "MIT",
   "scripts": {
-    "test": "../../vendor/bin/phpunit"
+    "test": "../../vendor/bin/phpunit --testsuite=test",
+    "test/solution": "../../vendor/bin/phpunit --testsuite=solution"
   },
   "require": {
     "php": "^8.2"

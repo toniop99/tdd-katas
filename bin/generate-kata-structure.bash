@@ -35,6 +35,8 @@ sed "s|PROJECT_NAME_PASCAL_CASE|$PROJECT_NAME_PASCAL_CASE|g;" ./stubs/Kata.php.s
 
 # Create tests directory and KataTest.php file inside it
 mkdir "$PROJECT_PATH/tests"
+mkdir "$PROJECT_PATH/tests/Solution"
+touch "$PROJECT_PATH/tests/Solution/.gitkeep"
 
 sed "s|PROJECT_NAME_PASCAL_CASE|$PROJECT_NAME_PASCAL_CASE|g;" ./stubs/KataTest.php.stub > "$PROJECT_PATH/tests/KataTest.php"
 

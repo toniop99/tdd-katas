@@ -13,6 +13,12 @@
     <testsuites>
         <testsuite name="test">
             <directory>tests</directory>
+            <exclude>tests/Solution</exclude>
+        </testsuite>
+
+        <testsuite name="solution">
+            <directory>tests/Solution</directory>
+            <exclude>tests/KataTest.php</exclude>
         </testsuite>
     </testsuites>
 </phpunit>
