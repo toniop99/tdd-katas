@@ -14,9 +14,9 @@ help: ## Show this help.
 ssh: ## SSH into the PHP container.
 	${DOCKER_EXEC_INTERACTIVE} ${DOCKER_PHP} bash
 
-.PHONY: bin/generate-kata
-bin/generate-kata: NAME=$(kata)
-bin/generate-kata: ## Generate a new kata structure. Usage: make bin/generate-kata kata=kata-name
+.PHONY: generate-kata
+generate-kata: NAME=$(kata)
+generate-kata: ## Generate a new kata structure. Usage: make generate-kata kata=kata-name
 	@./bin/generate-kata-structure.bash $(NAME)
 
 docker/up: ## Start the docker containers.
