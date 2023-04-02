@@ -1,0 +1,35 @@
+{
+    "name": "andezdev/tdd-katas",
+    "description": "Monorepo with katas to practice Test Driven Development",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Antonio Hernández",
+            "email": "andezdev@gmail.com",
+            "homepage": "https://antoniohnz.me/"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "mockery/mockery": "dev-master",
+        "phpunit/phpunit": "^10",
+        "symplify/monorepo-builder": "11.2.2.72"
+    },
+    "autoload": {
+        "psr-4": {
+            "Andezdev\\TddKatas\\FizzBuzzKata\\": "projects/fizz-buzz-kata/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Andezdev\\TddKatas\\FizzBuzzKata\\Tests\\": "projects/fizz-buzz-kata/tests/"
+        }
+    },
+    "replace": {
+        "tdd-katas/fizz-buzz-kata": "self.version"
+    },
+    "minimum-stability": "dev"
+}

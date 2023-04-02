@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  php_tdd_katas:
+    container_name: php_tdd_katas
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    image: php_tdd_katas
+    user: 1000:1000
+    volumes:
+      - .:/usr/src/app
