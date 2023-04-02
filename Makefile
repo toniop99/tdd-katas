@@ -34,16 +34,11 @@ composer/install: ## Install the composer dependencies.
 composer/update: ## Update the composer dependencies.
 	${DOCKER_SSH} composer update --no-interaction --optimize-autoloader
 
-composer/run: ACTION=$(action) PROJECT=$(project) ## Run a composer script. Usage: make composer/run action=script-name project=kata-name
-composer/run-test: ACTION=test ## Run the tests of the specified project. Usage: make composer/run-test
-composer/run-test-solution: ACTION=test/solution ## Run the tests of the specified project and the solution folder. Usage: make composer/run-solution
-
-composer/run composer/run-test composer/run-test-solution:
-	@./console/execute-tests.sh $(ACTION)
-
 composer/run-mono-merge: ## Merge the mono-repo into the specified project.
 	${DOCKER_SSH} composer run mono/merge
 
+command/test:
+	@${DOCKER_SSH} ./console/application.php test
 
 
 

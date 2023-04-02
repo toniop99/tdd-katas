@@ -20,10 +20,10 @@ Select the kata you want to solve and follow the instructions in the `README.md`
 
 - `make docker/up`: Start the docker container
 - `make composer/install`: Install the dependencies
-- `make composer/run-test`: Run the tests
+- `make command/test`: Run the tests
 
 👀 You can check a possible solution in the `projects/kata/src/Solution/` and `projects/kata/tests/Solution/` folder.
-- `make composer/run-test-solution`: Run the tests of the solution
+- `make command/test`: Run the tests of the solution
 
 ## How To Contribute
 If you want to contribute to this repository, you can do it in different ways:
