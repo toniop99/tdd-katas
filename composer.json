@@ -14,7 +14,8 @@
         "mono/merge": "vendor/bin/monorepo-builder merge"
     },
     "require": {
-        "php": "^8.2"
+        "php": "^8.2",
+        "symfony/console": "6.3.x-dev"
     },
     "require-dev": {
         "mockery/mockery": "dev-master",

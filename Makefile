@@ -17,7 +17,7 @@ ssh: ## SSH into the PHP container.
 .PHONY: generate-kata
 generate-kata: NAME=$(kata)
 generate-kata: ## Generate a new kata structure. Usage: make generate-kata kata=kata-name
-	@./bin/generate-kata-structure.bash $(NAME)
+	@./console/generate-kata-structure.bash $(NAME)
 
 docker/up: ## Start the docker containers.
 	docker-compose up -d --remove-orphans
@@ -39,7 +39,7 @@ composer/run-test: ACTION=test ## Run the tests of the specified project. Usage:
 composer/run-test-solution: ACTION=test/solution ## Run the tests of the specified project and the solution folder. Usage: make composer/run-solution
 
 composer/run composer/run-test composer/run-test-solution:
-	@./bin/execute-tests.sh $(ACTION)
+	@./console/execute-tests.sh $(ACTION)
 
 composer/run-mono-merge: ## Merge the mono-repo into the specified project.
 	${DOCKER_SSH} composer run mono/merge
