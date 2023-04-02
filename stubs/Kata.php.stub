@@ -1,0 +1,8 @@
+<?php declare(strict_types=1);
+
+namespace Andezdev\TddKatas\PROJECT_NAME_PASCAL_CASE;
+
+class Kata
+{
+
+}

@@ -1,0 +1,15 @@
+<?php declare(strict_types=1);
+
+namespace Andezdev\TddKatas\PROJECT_NAME_PASCAL_CASE\Tests;
+
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
+
+class KataTest extends TestCase
+{
+    #[Test]
+    public function dummy(): void
+    {
+        $this->assertTrue(true);
+    }
+}
