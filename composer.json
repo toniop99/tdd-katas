@@ -15,7 +15,9 @@
     },
     "require": {
         "php": "^8.2",
-        "symfony/console": "6.3.x-dev"
+        "symfony/console": "6.3.x-dev",
+        "symfony/finder": "6.3.x-dev",
+        "lambdish/phunctional": "dev-master"
     },
     "require-dev": {
         "mockery/mockery": "dev-master",
@@ -24,6 +26,7 @@
     },
     "autoload": {
         "psr-4": {
+            "Andezdev\\TddKatas\\Console\\": "console/",
             "Andezdev\\TddKatas\\FizzBuzzKata\\": "projects/fizz-buzz-kata/src/"
         }
     },
