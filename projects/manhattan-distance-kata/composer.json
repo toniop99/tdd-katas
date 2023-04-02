@@ -1,0 +1,27 @@
+{
+  "name": "tdd-katas/manhattan-distance-kata",
+  "description": "tdd kata",
+  "license": "MIT",
+  "scripts": {
+    "test": "../../vendor/bin/phpunit --testsuite=test",
+    "test/solution": "../../vendor/bin/phpunit --testsuite=solution"
+  },
+  "require": {
+    "php": "^8.2"
+  },
+  "require-dev": {
+    "mockery/mockery": "dev-master",
+    "phpunit/phpunit": "^10"
+  },
+  "autoload": {
+    "psr-4": {
+      "Andezdev\\TddKatas\\ManhattanDistanceKata\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Andezdev\\TddKatas\\ManhattanDistanceKata\\Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "dev"
+}
