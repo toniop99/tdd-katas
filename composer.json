@@ -10,6 +10,9 @@
             "homepage": "https://antoniohnz.me/"
         }
     ],
+    "scripts": {
+        "mono/merge": "vendor/bin/monorepo-builder merge"
+    },
     "require": {
         "php": "^8.2"
     },
