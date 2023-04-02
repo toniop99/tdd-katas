@@ -1,3 +1,8 @@
+---
+title: Fizz Buzz Kata
+tags: [tdd, starter, pair-programming]
+---
+
 # Fizz Buzz Kata
 
 ## Task
