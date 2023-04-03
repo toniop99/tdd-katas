@@ -7,21 +7,21 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Finder\Finder;
+use Symfony\Component\Process\Process;
 use function Lambdish\Phunctional\flatten;
 use function Lambdish\Phunctional\map;
 
 final class ExecuteTestCommand extends Command
 {
     private const TEST_SUITES = ['test', 'solution'];
-    private string $currentDirectory = __DIR__;
-    private string $projectPath;
+    private string $baseDirectory;
     private Finder $finder;
 
     public function __construct(string $name = null)
     {
         parent::__construct($name);
 
-        $this->projectPath = $this->currentDirectory . '/../projects';
+        $this->baseDirectory = dirname(__FILE__, 2);
         $this->finder = new Finder();
     }
 
@@ -38,7 +38,7 @@ final class ExecuteTestCommand extends Command
     {
         $projectDirectories = $this->finder
             ->directories()
-            ->in($this->currentDirectory . '/../projects')
+            ->in($this->baseDirectory . '/projects')
             ->depth(0);
 
         $projectsDirectoriesNames = map(
@@ -58,14 +58,14 @@ final class ExecuteTestCommand extends Command
             $input,
             $output,
             new ChoiceQuestion(
-                'Select the project to execute the test suite',
+                'Select the test suite',
                 self::TEST_SUITES,
                 0
             ));
 
         $this->executeTestSuite(
             $testsuite,
-            $this->projectPath . '/' . $projectSelectionName,
+            $this->baseDirectory . '/projects/' . $projectSelectionName,
             $output
         );
 
@@ -74,16 +74,18 @@ final class ExecuteTestCommand extends Command
 
     private function executeTestSuite(string $testsuite, string $projectPath, OutputInterface $output): void
     {
-        $output->writeln('Executing the test suite...');
-        $handle = popen('cd ' . $projectPath . '&& ../../vendor/bin/phpunit --testsuite=' . $testsuite . ' 2>&1', 'r');
+        $process = new Process(
+            [
+                'vendor/bin/phpunit',
+                '--colors=always',
+                '--testsuite=' . $testsuite,
+                '--configuration=' . $projectPath . '/phpunit.xml'
+            ],
+            $this->baseDirectory
+        );
 
-        if ($handle) {
-            while (($line = fgets($handle)) !== false) {
-                $output->writeln($line);
-                flush();
-            }
-
-            pclose($handle);
-        }
+        $process->run(function ($type, $buffer) use ($output) {
+            $output->write($buffer);
+        });
     }
 }
