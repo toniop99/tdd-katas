@@ -2,13 +2,15 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
-use Andezdev\TddKatas\Console\ExecuteTestCommand;
+use Andezdev\TddKatas\Bin\Commands\ExecuteTestCommand;
+use Andezdev\TddKatas\Bin\Commands\GenerateKataStructureCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
 
 // ... register commands
 $application->add(new ExecuteTestCommand());
+$application->add(new GenerateKataStructureCommand());
 
 
 try {

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Andezdev\TddKatas\Console;
+namespace Andezdev\TddKatas\Bin\Commands;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -21,7 +21,7 @@ final class ExecuteTestCommand extends Command
     {
         parent::__construct($name);
 
-        $this->baseDirectory = dirname(__FILE__, 2);
+        $this->baseDirectory = dirname(__FILE__, 3);
         $this->finder = new Finder();
     }
 

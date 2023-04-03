@@ -5,11 +5,6 @@
          executionOrder="random"
          defaultTestSuite="test"
          cacheDirectory=".phpunit.cache">
-    <coverage>
-        <include>
-            <directory suffix=".php">src</directory>
-        </include>
-    </coverage>
     <testsuites>
         <testsuite name="test">
             <directory>tests</directory>

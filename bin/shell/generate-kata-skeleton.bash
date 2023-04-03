@@ -1,16 +1,12 @@
 #!/bin/bash
 
-#Get directory of the script
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-PROJECT_DIRECTORY="$SCRIPT_DIR/../projects"
-
-# Get project name as argument
 PROJECT_NAME=$1
+PROJECT_NAME_PASCAL_CASE=$2
+PROJECTS_DIRECTORY=$3
 
-PROJECT_NAME_PASCAL_CASE=$(echo "$PROJECT_NAME" | perl -nE 'say join "", map {ucfirst lc} split /[^[:alnum:]]+/')
 PROJECT_NAME_WITHOUT_HYPHENS=$(echo "$PROJECT_NAME" | tr '-' ' ')
 
-PROJECT_PATH="$PROJECT_DIRECTORY/$1"
+PROJECT_PATH="$PROJECTS_DIRECTORY/$1"
 
 # Check if project path exists and exit if it does
 if [ -d "$PROJECT_PATH" ]; then

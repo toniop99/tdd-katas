@@ -12,12 +12,12 @@ help: ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
 ssh: ## SSH into the PHP container.
-	${DOCKER_EXEC_INTERACTIVE} ${DOCKER_PHP} bash
+	@${DOCKER_EXEC_INTERACTIVE} ${DOCKER_PHP} bash
 
 .PHONY: generate-kata
 generate-kata: NAME=$(kata)
 generate-kata: ## Generate a new kata structure. Usage: make generate-kata kata=kata-name
-	@./console/generate-kata-structure.bash $(NAME)
+	@./bin/shell/generate-kata-skeleton.bash $(NAME)
 
 docker/up: ## Start the docker containers.
 	docker-compose up -d --remove-orphans
@@ -37,8 +37,15 @@ composer/update: ## Update the composer dependencies.
 composer/run-mono-merge: ## Merge the mono-repo into the specified project.
 	${DOCKER_SSH} composer run mono/merge
 
+command: ## Run a command in the PHP container. Usage: make command generate:kata-skeleton
+	@${DOCKER_SSH} ./bin/console $(filter-out command,$(MAKECMDGOALS))
+
 command/test:
-	@${DOCKER_SSH} ./console/application.php test
+	@${DOCKER_SSH} ./bin/console test
+
+command/generate-skeleton:
+	@${DOCKER_SSH} ./bin/console generate:kata-skeleton
+
 
 
 

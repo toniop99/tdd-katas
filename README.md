@@ -34,7 +34,7 @@ If you want to contribute to this repository, you can do it in different ways:
 
 ### Create a new kata
 To create a new kata:
-- `make generate-kata kata=kata-name`
+- `make command/generate-skeleton`
   - This command will create a new package in the `projects` folder with the name `kata-name`.
     Modify and add the files you need for the kata. Add a solution in the `projects/kata/src/Solution/` and `projects/kata/tests/Solution/` folder.
 

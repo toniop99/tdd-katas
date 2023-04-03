@@ -18,7 +18,9 @@
         "symfony/console": "6.3.x-dev",
         "symfony/finder": "6.3.x-dev",
         "lambdish/phunctional": "dev-master",
-        "symfony/process": "6.3.x-dev"
+        "symfony/process": "6.3.x-dev",
+        "jawira/case-converter": "dev-master",
+        "symfony/filesystem": "6.3.x-dev"
     },
     "require-dev": {
         "mockery/mockery": "dev-master",
@@ -27,7 +29,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Andezdev\\TddKatas\\Console\\": "console/",
+            "Andezdev\\TddKatas\\Bin\\": "bin/",
             "Andezdev\\TddKatas\\FizzBuzzKata\\": "projects/fizz-buzz-kata/src/"
         }
     },
