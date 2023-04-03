@@ -3,8 +3,8 @@ SHELL := /bin/bash
 DOCKER_PHP = php_tdd_katas
 UID = 1000:1000
 
-DOCKER_EXEC = docker exec -i -u ${UID}
-DOCKER_EXEC_INTERACTIVE = docker exec -it -u ${UID}
+DOCKER_EXEC = docker exec -i -u ${UID} -e "TERM=xterm-256color"
+DOCKER_EXEC_INTERACTIVE = docker exec -it -u ${UID} -e "TERM=xterm-256color"
 DOCKER_SSH = ${DOCKER_EXEC} ${DOCKER_PHP}
 
 .PHONY: help
